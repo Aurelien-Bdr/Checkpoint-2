@@ -37,16 +37,22 @@ const GameList = () => {
       ));
 
   return (
-    <>
-      <button
-        onClick={() => {
-          setBestGames(!bestGames);
-        }}
-      >
-        {displayButtonName}
-      </button>
+    <div>
+      <div className="menu">
+        <h1>Games library</h1>
+      </div>
+      <div className="button-container">
+        <button
+          onClick={() => {
+            setBestGames(!bestGames);
+          }}
+        >
+          {displayButtonName}
+        </button>
+      </div>
+
       <div className="game-list">{filterCondition}</div>
-    </>
+    </div>
   );
 };
 
