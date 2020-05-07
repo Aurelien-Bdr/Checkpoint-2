@@ -22,6 +22,20 @@ const GameList = () => {
     console.log(games); // L'element est bien supprimé du tableau
   };
 
+  const displayButtonName = bestGames ? "All games" : "Best Games";
+
+  const filterCondition = bestGames
+    ? games
+        .filter((game) => {
+          return game.rating >= 4.5;
+        })
+        .map((game, index) => (
+          <Game key={index} game={game} deleteGame={deleteGame} />
+        ))
+    : games.map((game, index) => (
+        <Game key={index} game={game} deleteGame={deleteGame} />
+      ));
+
   return (
     <>
       <button
@@ -29,13 +43,9 @@ const GameList = () => {
           setBestGames(!bestGames);
         }}
       >
-        {bestGames ? "All games" : "Best Games"}
+        {displayButtonName}
       </button>
-      <div className="game-list">
-        {games.map((game, index) => (
-          <Game key={index} game={game} deleteGame={deleteGame} />
-        ))}
-      </div>
+      <div className="game-list">{filterCondition}</div>
     </>
   );
 };
