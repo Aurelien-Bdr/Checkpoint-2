@@ -1,10 +1,11 @@
 import React from "react";
 import "./App.css";
+import GameList from "./components/GameList/GameList";
 
 function App() {
   return (
     <div className="App">
-      <p>Hello World</p>
+      <GameList />
     </div>
   );
 }
