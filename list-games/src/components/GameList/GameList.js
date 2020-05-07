@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./GameList.css";
+import Game from "../Game/Game";
 
 const GameList = () => {
   const [games, setGames] = useState([]);
@@ -11,7 +12,13 @@ const GameList = () => {
       .then((res) => setGames(res.data));
   }, [games]);
 
-  return <div>test</div>;
+  return (
+    <div className="GameList">
+      {games.map((game, index) => (
+        <Game key={index} game={game} />
+      ))}
+    </div>
+  );
 };
 
 export default GameList;
