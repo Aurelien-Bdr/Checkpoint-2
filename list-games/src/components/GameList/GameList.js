@@ -13,7 +13,7 @@ const GameList = () => {
   }, [games]);
 
   return (
-    <div className="GameList">
+    <div className="game-list">
       {games.map((game, index) => (
         <Game key={index} game={game} />
       ))}
