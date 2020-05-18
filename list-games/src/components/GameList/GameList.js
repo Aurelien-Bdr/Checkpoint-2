@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./GameList.css";
 import Game from "../Game/Game";
+import "./GameList.css";
 
 const GameList = () => {
   const [games, setGames] = useState([]);
@@ -14,12 +14,9 @@ const GameList = () => {
   }, []);
 
   const deleteGame = (game) => {
-    //on prend en paramètre un film "game" au singulier
-    const position = games.indexOf(game); // Identifier la position de chaque jeu dans le tableau
-    console.log(position); // au click sur les boutons chaque film affiche sa position
-    games.splice(position, 1); // Elle prend en premier argument la position à partir de laquelle on commence la suppression et en deuxième argument le nombre d'éléments à supprimer.
+    const position = games.indexOf(game);
+    games.splice(position, 1);
     setGames([...games]);
-    console.log(games); // L'element est bien supprimé du tableau
   };
 
   const displayButtonName = bestGames ? "All games" : "Best Games";
